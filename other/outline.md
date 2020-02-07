@@ -12,22 +12,24 @@ Competetion Page: https://www.kaggle.com/c/forest-cover-type-prediction/data
     * Wilderness Area Discriptor Class: acrage, max height, min height, percent each forest coverage, 
     * box or violin for continuous variables
     * Cover types in each wilderness (training only?)
-    
+    * corelation matrix
+    * 
 
 # Further Research Tasks:
 
 
-# Clustering Functions:
+# Unsupervised Clustering:
 
 
 # Feature Engineering:
-
+    * Remove colinear features
+    * Remove skewed soil types
 
 # Relavent Features:
 
 
-# Modeling Functions:
-
+# Supervised Modeling:
+    * KNN
 
 # Data Products:
 
@@ -40,4 +42,32 @@ Competetion Page: https://www.kaggle.com/c/forest-cover-type-prediction/data
 
 # Questions:
     * Ask Casey how to find when sun is highest during day (accounting for daylight savings)
-    
+
+
+
+# Feature Selection:
+    ExtraTreesClassifier
+    * GradientBoostingClassifier
+    * RandomForestClassifier
+    XGBClassifier
+    RFE
+    SelectPercentile
+    * PCA
+    PCA + SelectPercentile
+    Feature Engineering
+
+# Evaluation and Prediction:
+    LDA (Linear algo)
+    * LR (Linear algo)
+    * KNN (Non-linear algo)
+    CART (Non-linear algo)      ******************
+    * Naive Bayes (Non-linear algo)
+    SVC (Non-linear algo)
+    * Bagged Decision Trees (Bagging)
+    * Random Forest (Bagging)
+    Extra Trees (Bagging)
+    AdaBoost (Boosting)
+    Stochastic Gradient Boosting (Boosting)
+    Voting Classifier (Voting)
+    MLP (Deep Learning)
+    * XGBoost
