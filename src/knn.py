@@ -4,6 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import sys
+import pickle
 
 # ~/dsi/capstones/cap_2/
 
@@ -17,6 +18,8 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report, confusion_matrix
 
 
+pruned_features = ['']
+
 
 
 if __name__ == '__main__':
@@ -24,6 +27,7 @@ if __name__ == '__main__':
     # Load Data
     df_train = pd.read_csv('~/dsi/capstones/cap_2/data/forest-cover-competition/train.csv')
     df_test = pd.read_csv('~/dsi/capstones/cap_2/data/forest-cover-competition/test.csv') #Unseen Data
+
 
     # Remove Competition IDs
     df_train.drop(axis=0, columns='Id', inplace=True)
@@ -58,7 +62,7 @@ if __name__ == '__main__':
     print(confusion_matrix(y_test, y_pred))
     print(classification_report(y_test, y_pred))
 
-
+    '''
     # Min Max Scaler
     knn_classifier = KNeighborsClassifier(n_neighbors=7, n_jobs=-2)
     knn_classifier.fit(X_min_max, y_train)
@@ -80,16 +84,17 @@ if __name__ == '__main__':
 
     print(confusion_matrix(y_test, y_pred))
     print(classification_report(y_test, y_pred))
-
+    '''
 
 
     # Unseen Dataset
-    X = df_test.iloc[:,:-1]
-    y = df_test.iloc[:,-1]
+    X_unseen = df_test
+    # y = df_test
 
     seed = 0
     test_split = .2
 
+    '''
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_split, random_state=seed)
 
     min_max_scaler = MinMaxScaler()
@@ -102,12 +107,22 @@ if __name__ == '__main__':
 
     knn_classifier = KNeighborsClassifier(n_neighbors=7, n_jobs=-2)
     knn_classifier.fit(X_train, y_train)
+    '''
 
-    y_pred = knn_classifier.predict(X_test)
+    y_pred_unseen = knn_classifier.predict(X_unseen)
 
+    '''
     test_accuracy = knn_classifier.score(X_test, y_test) 
 
     print(confusion_matrix(y_test, y_pred))
     print(classification_report(y_test, y_pred))
+    '''
+    
+    with open('results_knn', 'wb') as fp: 
+        pickle.dump(y_pred_unseen, fp) 
+
+    with open('results_knn.txt', 'w') as f:
+        for item in y_pred_unseen:
+            print >> f, item
 
     

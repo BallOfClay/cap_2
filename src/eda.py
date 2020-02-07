@@ -5,6 +5,18 @@ import seaborn as sns
 import math
 
 
+# Color Palettes
+flatui = ["#9b59b6", "#3498db", "#95a5a6", "#e74c3c", "#34495e", "#2ecc71"]
+"muted"
+"coolwarm"
+"PRGn"
+"YlOrBr"
+"rainbow"
+
+# hue
+'Cover_Type'
+
+
 # Constants
 
 conv_m_2_ft = 3.28084
@@ -67,6 +79,12 @@ if __name__ == '__main__':
      df_all.describe()
      df_train.describe()
 
+     # Seperate Train Dataframes for variable types
+     df_cart = df_train.iloc[:, 0:10]
+     df_wild = df_train.iloc[:, 10:14]
+     df_soil = df_train.iloc[:, 14:54]
+     df_binary = df_train.iloc[:, 10:54]
+
 
      # COMPLETE DATASET ANALYSIS
 
@@ -83,30 +101,98 @@ if __name__ == '__main__':
 
 
      # Plot setup
-     fig, ax = plt.subplots(figsize=(8,4))
-     plt.style.use('ggplot')
+     # fig, ax = plt.subplots(figsize=(8,6))
+     # plt.style.use('ggplot')
 
      # Plot total number of each forest type
+     fig, ax = plt.subplots(figsize=(8,6))
+     plt.style.use('ggplot')
+
      cover_counts = df_all.Cover_Type.value_counts()
      ax.hist(df_all['Cover_Type'], bins=7)
      ax.set_title('Total Number of Coverage Type Patches')
      ax.set_xlabel('Coverage Type', fontsize=16)
      ax.set_ylabel('Counts', fontsize=16)
-     fig.savefig('cover_counts.png')
+     plt.show()
      
 
      # Plot distribution of total forest at each elevation
-     ax.hist(df_all['Evelation'], bins=50)
+     fig, ax = plt.subplots(figsize=(8,6))
+     plt.style.use('ggplot')
+
+     ax.hist(df_all['Elevation'], bins=50)
      ax.set_title('Distribution of Elevations')
-     ax.set_xlabel('Coverage Type', fontsize=16)
+     ax.set_xlabel('Elevation in meters', fontsize=16)
      ax.set_ylabel('Counts', fontsize=16)
-     fig.savefig('elevation_counts.png')
+     plt.show()
 
      # Plot distribution of total forest on each slope
-     ax.hist(df_all['Slope'], bins=50)
-     ax.set_title('Distribution of Elevations')
-     ax.set_xlabel('Coverage Type', fontsize=16)
-     ax.set_ylabel('Counts', fontsize=16)
-     fig.savefig('elevation_counts.png')
+     fig, ax = plt.subplots(figsize=(8,6))
+     plt.style.use('ggplot')
 
+     ax.hist(df_all['Slope'], bins=65)
+     ax.set_title('Distribution of Slopes')
+     ax.set_xlabel('Slope', fontsize=16)
+     ax.set_ylabel('Counts', fontsize=16)
+     plt.show()
+
+     # Plot polar distribution of percent total forest at each aspect
+     ax2 = plt.subplot(polar=True)
+     plt.style.use('ggplot')
+
+     ax2.set_theta_direction(-1)
+
+     polar_reduction = 5
+     summed_aspect_sums = calc_reduced_aspects(df_all, polar_reduction)
+     degrees = np.arange(0,360,polar_reduction)
+
+     ax2.plot(degrees*math.pi/180, summed_aspect_sums/sum(summed_aspect_sums))
+     ax2.set_theta_offset(math.pi/2)
+     ax2.set_title('Distribution of Aspects')
+     plt.show()
+     # plt.close('all')
+
+     fig, ax = plt.subplots(figsize=(8,6))
+     plt.style.use('ggplot')
+
+     ax.hist(df_all['Elevation']*conv_m_2_ft, bins=50)
+     ax.set_title('Distribution of Elevations (feet)')
+     ax.set_xlabel('Elevation in feet', fontsize=16)
+     ax.set_ylabel('Counts', fontsize=16)
+     plt.show()
+
+
+     # TRAIN DATASET ANALYSIS
+     
+     # Plot number of each forest type
+     fig3, ax3 = plt.subplots(figsize=(8,6))
+     plt.style.use('ggplot')
+
+     cover_counts = df_train.Cover_Type.value_counts()
+     ax3.hist(df_train['Cover_Type'], bins=7)
+     ax3.set_title('Total Number of Coverage Type Patches')
+     ax3.set_xlabel('Coverage Type', fontsize=16)
+     ax3.set_ylabel('Counts', fontsize=16)
+     plt.show()
+     plt.close('all')
+
+     # Box Plots
+     '''
+     chosen = ['Elevation' , 'Aspect' , 'Slope', 'Horizontal_Distance_To_Hydrology' , 
+               'Vertical_Distance_To_Hydrology' ,'Horizontal_Distance_To_Roadways','Hillshade_9am',
+               'Hillshade_Noon','Hillshade_3pm','Horizontal_Distance_To_Fire_Points','Cover_Type']
+     '''
+
+     
+     chosen = ['Elevation' , 'Aspect' , 'Slope', 'Horizontal_Distance_To_Hydrology', 
+               'Vertical_Distance_To_Hydrology', 'Hillshade_Noon', 'Horizontal_Distance_To_Fire_Points',
+               'Cover_Type']
+
+     df_chosen = df_train[chosen]
+
+     df_chosen['Cover_Type'] = df_chosen['Cover_Type'].astype('category')
+
+     for idx, col in enumerate(df_chosen.columns):
+          plt.figure(idx, figsize=(8,4))
+          sns.boxplot(x=df_chosen['Cover_Type'], y=chosen, data=df_chosen, palette="PRGn")
      

@@ -38,13 +38,13 @@ I came across a dataset from the Department of Forest Sciences at Colorado State
 
 <div class="row">
     <div class="column">
-        <img src="imgs/lodgepole.jpg" style="width:100%">
+        <img src="imgs/lodgepole.jpg" width=300>
     </div>  
     <div class="column">
-        <img src="imgs/aspen.jpeg" style="width:100%">
+        <img src="imgs/aspen.jpeg" width=300>
     </div>  
     <div class="column">
-        <img src="imgs/krumholtz.jpeg" style="width:100%">
+        <img src="imgs/krumholtz.jpeg" width=300>
     </div>
 </div>
 
@@ -133,5 +133,84 @@ Features of the dataset:
         40 Moran family - Cryorthents - Rock land complex, extremely stony.
 
 
-## Exploritory Data Analysis & Feature Pruning:
+## Exploritory Data Analysis:
 
+### Combined Dataset Analysis:
+
+<img src="imgs/coverage_counts.png" alt="drawing" width=400/>
+
+<img src="imgs/dist_elevations.png" alt="drawing" width=400/>
+
+<img src="imgs/aspect_distribution.png" alt="drawing" width=400/>
+
+<img src="imgs/dist_elev_feet.png" alt="drawing" width=400/>
+
+The polar plot above can be interpreted as 0 degs is North, 90 degs is East, etc. I want to pay close attention to this distribution. Does it have any relation to our biomes diagram earlier?
+
+
+
+### Training Dataset Analysis:
+
+<img src="imgs/hillshade_noon.png" alt="drawing" width=400/>
+
+<img src="imgs/dist_to_fire_points.png" alt="drawing" width=400/>
+
+<img src="imgs/elev_box.png" alt="drawing" width=400/>
+
+Anecdotally, there are clear clustering for each forest type based on elevation.
+
+
+
+## Feature Pruning:
+
+<img src="imgs/dist_to_fire_points.png" alt="drawing" width=400/>
+
+Pruned:
+    * Hillshade_3pm
+    * Insignificant or unclassified soil types
+
+
+## Annalysis:
+
+For supervised learning, I tried to use a KNN, Random Forest and Linear Regression. So far have only been effective on KNN.
+
+**KNN Confusion Matrix:**
+
+    [[272  79   0   0  31   0  57]
+    [ 88 226  14   0  49  27   7]
+    [  0   4 302  50   6  56   0]
+    [  0   0   6 421   0  11   0]
+    [  0  17  10   0 397   4   0]
+    [  0   5  45  29  14 378   0]
+    [ 13   4   0   0   0   0 402]]
+
+
+
+**KNN Classification Report:**
+
+            precision    recall  f1-score   support
+
+           1       0.73      0.62      0.67       439
+           2       0.67      0.55      0.61       411
+           3       0.80      0.72      0.76       418
+           4       0.84      0.96      0.90       438
+           5       0.80      0.93      0.86       428
+           6       0.79      0.80      0.80       471
+           7       0.86      0.96      0.91       419
+
+    accuracy                           0.79      3024
+   macro avg       0.79      0.79      0.79      3024
+weighted avg       0.79      0.79      0.79      3024
+
+
+## Conclusions:
+
+Clearly there is forest clustering in Colorado.
+
+<img src="imgs/veg-map-web.png" alt="drawing" width=400/>
+
+
+## Next Steps:
+
+* Fix Models
+* Tune Features and Models more

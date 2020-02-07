@@ -44,6 +44,9 @@ Competetion Page: https://www.kaggle.com/c/forest-cover-type-prediction/data
     * Ask Casey how to find when sun is highest during day (accounting for daylight savings)
 
 
+# Chosen Models
+* KNN
+* Random Forest Bagging
 
 # Feature Selection:
     ExtraTreesClassifier
@@ -71,3 +74,7 @@ Competetion Page: https://www.kaggle.com/c/forest-cover-type-prediction/data
     Voting Classifier (Voting)
     MLP (Deep Learning)
     * XGBoost
+
+From KNN
+[[     1      2      3      4      5      6      7]
+ [185094 187862  41646   5063  62189  28165  55873]]
