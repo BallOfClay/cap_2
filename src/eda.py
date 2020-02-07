@@ -84,22 +84,29 @@ if __name__ == '__main__':
 
      # Plot setup
      fig, ax = plt.subplots(figsize=(8,4))
-     ax.style.use('ggplot')
+     plt.style.use('ggplot')
 
      # Plot total number of each forest type
      cover_counts = df_all.Cover_Type.value_counts()
      ax.hist(df_all['Cover_Type'], bins=7)
      ax.set_title('Total Number of Coverage Type Patches')
      ax.set_xlabel('Coverage Type', fontsize=16)
-     ax.savefig('cover_counts.png')
+     ax.set_ylabel('Counts', fontsize=16)
+     fig.savefig('cover_counts.png')
      
 
-     # Plot percentage of total forest at each elevation
-     cover_counts = df_all.Cover_Type.value_counts()
-     ax.hist(df_all['Cover_Type'], bins=7)
-     ax.set_title('Total Number of Coverage Type Patches')
-     ax.set_title('Total Number of Coverage Type Patches')
+     # Plot distribution of total forest at each elevation
+     ax.hist(df_all['Evelation'], bins=50)
+     ax.set_title('Distribution of Elevations')
      ax.set_xlabel('Coverage Type', fontsize=16)
-     ax.savefig('cover_counts.png')
+     ax.set_ylabel('Counts', fontsize=16)
+     fig.savefig('elevation_counts.png')
 
-     # Plot Percentage elevation fes
+     # Plot distribution of total forest on each slope
+     ax.hist(df_all['Slope'], bins=50)
+     ax.set_title('Distribution of Elevations')
+     ax.set_xlabel('Coverage Type', fontsize=16)
+     ax.set_ylabel('Counts', fontsize=16)
+     fig.savefig('elevation_counts.png')
+
+     
