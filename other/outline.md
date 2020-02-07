@@ -10,6 +10,9 @@ Competetion Page: https://www.kaggle.com/c/forest-cover-type-prediction/data
 
 # EDA Tasks:
     * Wilderness Area Discriptor Class: acrage, max height, min height, percent each forest coverage, 
+    * box or violin for continuous variables
+    * Cover types in each wilderness (training only?)
+    
 
 # Further Research Tasks:
 
@@ -33,3 +36,8 @@ Competetion Page: https://www.kaggle.com/c/forest-cover-type-prediction/data
 
 
 # Next Steps:
+    * 
+
+# Questions:
+    * Ask Casey how to find when sun is highest during day (accounting for daylight savings)
+    

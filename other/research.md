@@ -45,9 +45,11 @@
     Logistic Regression, Random Forest, LightGBM
     https://www.kaggle.com/shreeharjoshi/classifying-the-type-of-forest
 
-    Some Feature Engineering
+    my first submission (Interesting Feature Engineering)
     https://www.kaggle.com/jianyu/my-first-submission
 
+    KNN from scratch..
+    https://www.kaggle.com/ma7555/knn-from-scratch
 
 # Original Research:
 
