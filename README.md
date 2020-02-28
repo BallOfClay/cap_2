@@ -36,6 +36,12 @@ I came across a dataset from the Department of Forest Sciences at Colorado State
         6 - Douglas-fir
         7 - Krummholz
 
+<p float="left">
+  <img src="imgs/lodgepole.jpg" width=300>
+  <img src="imgs/aspen.jpeg" width=300>
+  <img src="imgs/krumholtz.jpeg" width=300>
+</p>
+
 <div class="row">
     <div class="column">
         <img src="imgs/lodgepole.jpg" width=300>
@@ -138,13 +144,13 @@ Features of the dataset:
 ### Combined Dataset Analysis:
 
 <p float="left">
-  <img src="imgs/coverage_counts.png" width=200/>
-  <img src="imgs/dist_elevations.png" width=200/>
+  <img src="imgs/coverage_counts.png" width=400/>
+  <img src="imgs/dist_elevations.png" width=400/>
 </p>
 
 <p float="left">
-  <img src="imgs/aspect_distribution.png" width=200/>
-  <img src="imgs/dist_elev_feet.png" width=200/>
+  <img src="imgs/aspect_distribution.png" width=400/>
+  <img src="imgs/dist_elev_feet.png" width=400/>
 </p>
 
 The polar plot above can be interpreted as 0 degs is North, 90 degs is East, etc. I want to pay close attention to this distribution. Does it have any relation to our biomes diagram earlier?
