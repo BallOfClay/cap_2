@@ -188,26 +188,26 @@ For supervised learning, I tried to use a KNN, Random Forest and Linear Regressi
 
 **KNN Classification Report:**
 
-            precision    recall  f1-score   support
+                    precision    recall  f1-score   support
 
-           1       0.73      0.62      0.67       439
-           2       0.67      0.55      0.61       411
-           3       0.80      0.72      0.76       418
-           4       0.84      0.96      0.90       438
-           5       0.80      0.93      0.86       428
-           6       0.79      0.80      0.80       471
-           7       0.86      0.96      0.91       419
+                 1       0.73      0.62      0.67       439
+                 2       0.67      0.55      0.61       411
+                 3       0.80      0.72      0.76       418
+                 4       0.84      0.96      0.90       438
+                 5       0.80      0.93      0.86       428
+                 6       0.79      0.80      0.80       471
+                 7       0.86      0.96      0.91       419
 
-    accuracy                           0.79      3024
-   macro avg       0.79      0.79      0.79      3024
-weighted avg       0.79      0.79      0.79      3024
+          accuracy                           0.79      3024
+         macro avg       0.79      0.79      0.79      3024
+      weighted avg       0.79      0.79      0.79      3024
 
 
 ## Conclusions:
 
 Clearly there is forest clustering in Colorado.
 
-<img src="imgs/veg-map-web.png" alt="drawing" width=400/>
+<img src="imgs/veg-map-web.jpg" alt="drawing" width=500/>
 
 
 ## Next Steps:
