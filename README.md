@@ -137,13 +137,15 @@ Features of the dataset:
 
 ### Combined Dataset Analysis:
 
-<img src="imgs/coverage_counts.png" alt="drawing" width=400/>
+<p float="left">
+  <img src="imgs/coverage_counts.png" width=200/>
+  <img src="imgs/dist_elevations.png" width=200/>
+</p>
 
-<img src="imgs/dist_elevations.png" alt="drawing" width=400/>
-
-<img src="imgs/aspect_distribution.png" alt="drawing" width=400/>
-
-<img src="imgs/dist_elev_feet.png" alt="drawing" width=400/>
+<p float="left">
+  <img src="imgs/aspect_distribution.png" width=200/>
+  <img src="imgs/dist_elev_feet.png" width=200/>
+</p>
 
 The polar plot above can be interpreted as 0 degs is North, 90 degs is East, etc. I want to pay close attention to this distribution. Does it have any relation to our biomes diagram earlier?
 
