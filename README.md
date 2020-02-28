@@ -37,22 +37,10 @@ I came across a dataset from the Department of Forest Sciences at Colorado State
         7 - Krummholz
 
 <p float="left">
-  <img src="imgs/lodgepole.jpg" width=300>
-  <img src="imgs/aspen.jpeg" width=300>
-  <img src="imgs/krumholtz.jpeg" width=300>
+  <img src="imgs/lodgepole.jpg" width=260>
+  <img src="imgs/aspen.jpeg" width=260>
+  <img src="imgs/krumholtz.jpeg" width=260>
 </p>
-
-<div class="row">
-    <div class="column">
-        <img src="imgs/lodgepole.jpg" width=300>
-    </div>  
-    <div class="column">
-        <img src="imgs/aspen.jpeg" width=300>
-    </div>  
-    <div class="column">
-        <img src="imgs/krumholtz.jpeg" width=300>
-    </div>
-</div>
 
 
     Each observed patch of forest were described to come from 1 of 4 different Wildernes Areas in Roosevelt National Forest:
